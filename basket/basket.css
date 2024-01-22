@@ -305,7 +305,7 @@ body {
     position: absolute;
     width: 100%;
     margin-top: 10px;
-    height: 530px; 
+    max-height: 530px; 
     overflow-y: auto;
     scrollbar-width: thin; 
 }
