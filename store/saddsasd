@@ -1,0 +1,833 @@
+'use strict'
+
+
+const catalog = document.querySelector('.catalog');
+const catalogList = document.querySelector('.catalog-list')
+
+let catalogOpen = false;
+
+catalog.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleCatalogList();
+});
+
+document.addEventListener('click', (event) => {
+    const isClickedInsideCatalog = catalog.contains(event.target);
+    const isClickedInsideCatalogList = catalogList.contains(event.target);
+
+    if (!isClickedInsideCatalog && !isClickedInsideCatalogList && catalogOpen) {
+        catalogList.style.display = "none";
+        catalogOpen = false;
+    }
+});
+
+const toggleCatalogList = () => {
+    if (catalogOpen) {
+        catalogList.style.display = "none";
+        catalogOpen = false;
+    } else {
+        catalogList.style.display = "block";
+        catalogOpen = true;
+    }
+}
+
+
+
+
+const basket = document.querySelector('.basket')
+
+basket.addEventListener('click',()=>{
+    window.location.href="../basket/basket.html"
+})
+
+const headerList = document.querySelector('.header-list');
+const burgerMenuIcon = document.querySelector('.burger-menu img');
+const burgerMenu = document.querySelector('.burger-menu');
+
+let burgerMenuOpen = false;
+
+burgerMenu.addEventListener('click', () => {
+    if(burgerMenuOpen){
+        headerList.style.display = "none";
+        burgerMenuIcon.src = "../assets/icons/burger-menu.svg";
+        burgerMenuOpen = false;
+    }else{
+        headerList.style.display = "flex";
+        burgerMenuIcon.src = "../assets/icons/x-button.svg";
+        burgerMenuOpen = true;
+    }
+  
+});
+
+
+const logo = document.querySelector('.logo');
+
+logo.addEventListener('click', () => {
+    window.location.href = "../index.html";
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ****************** C A T E G O R Y
+
+const categoryFilter = document.querySelector(".category-filter")
+const filterNameBtn = document.querySelector(".category-name");
+const filterNameIcon = document.querySelector(".category-name img");
+const filterCategoryBtn = document.querySelector(".category-list");
+const subListBtn = document.querySelectorAll(".sub-list");
+
+let filterName = false;
+
+filterNameBtn.addEventListener('click', () => {
+    if (filterName) {
+        filterCategoryBtn.style.display = "none";
+        filterNameBtn.style.backgroundColor = "inherit";
+        categoryFilter.style.borderRadius = "1.75rem"
+        filterNameIcon.src = "../assets/icons/plus.svg"
+        categoryFilter.style.backgroundColor = "#f5f5f5"
+        filterName = false;
+    } else {
+        filterCategoryBtn.style.display = "block";
+        filterNameBtn.style.backgroundColor = "rgb(255, 220, 220)";
+        categoryFilter.style.borderRadius = "0.75rem"
+        filterNameIcon.src = "../assets/icons/minus.svg"
+        categoryFilter.style.backgroundColor = "white"
+        filterName = true;
+    }
+});
+
+
+
+const firstListBtn = document.querySelectorAll(".first-list")
+const firstListArrow = document.querySelectorAll(".first-list img")
+
+firstListBtn.forEach((firstListBtn, index) => {
+    let firstList = false;
+
+    firstListBtn.addEventListener('click', () => {
+        if (firstList) {
+            firstListBtn.style.backgroundColor = "inherit"
+            subListBtn[index].style.display = "none"
+            firstListArrow[index].style.transform = "rotate(0deg)"
+            firstList = false;
+        } else {
+            firstListBtn.style.backgroundColor = "#f5f5f5"
+            subListBtn[index].style.display = "block"
+            firstListArrow[index].style.transform = "rotate(180deg)"
+            firstList = true;
+        }
+    })
+
+})
+
+const subListLiElment = document.querySelectorAll(".sub-list li")
+const subListIcon = document.querySelectorAll(".sub-list li img")
+
+
+const subLiDisplay = () => {
+    subListLiElment.forEach((list, index) => {
+        let iconImg = false
+        list.addEventListener('click', () => {
+            if (iconImg) {
+                list.style.backgroundColor = "inherit"
+                subListIcon[index].src = ""
+                iconImg = false
+            } else {
+                list.style.backgroundColor = "#f5f5f5"
+                subListIcon[index].src = "../assets/icons/ok.svg"
+                iconImg = true
+            }
+        })
+    })
+}
+subLiDisplay()
+
+
+
+
+
+// ****************************** B R A N D S
+
+const brandFilter = document.querySelector(".brand-filter")
+const brandNameBtn = document.querySelector('.brand-name');
+const brandNameIcon = document.querySelector('.brand-name img');
+const brandsListEl = document.querySelector('.brands-list');
+
+let brandName = false;
+brandNameBtn.addEventListener('click', () => {
+    if (brandName) {
+        brandNameBtn.style.backgroundColor = 'inherit'
+        brandsListEl.style.display = 'none'
+        brandFilter.style.borderRadius = "1.75rem"
+        brandNameIcon.src = "../assets/icons/plus.svg"
+        brandFilter.style.backgroundColor = "#f5f5f5"
+        brandName = false;
+    } else {
+        brandNameBtn.style.backgroundColor = 'rgb(255, 220, 220)'
+        brandsListEl.style.display = 'block'
+        brandFilter.style.borderRadius = "0.75rem"
+        brandNameIcon.src = "../assets/icons/minus.svg"
+        brandFilter.style.backgroundColor = "white"
+        brandName = true;
+    }
+});
+
+
+const brandsLiElement = document.querySelectorAll('.brands-list li')
+const brandsListIcon = document.querySelectorAll('.brands-list li img');
+
+
+const brandsLiDisplay = () => {
+    brandsLiElement.forEach((list, index) => {
+        let clicked = false
+        list.addEventListener('click', () => {
+            if (clicked) {
+                brandsListIcon[index].src = ""
+                list.style.backgroundColor = "inherit"
+                clicked = false
+            } else {
+                brandsListIcon[index].src = "../assets/icons/ok.svg"
+                list.style.backgroundColor = "#f5f5f5"
+                clicked = true
+            }
+        })
+    })
+}
+
+brandsLiDisplay();
+
+
+
+
+
+// ************************************ S I Z E S
+const sizeFilter = document.querySelector(".size-filter")
+const sizeNameBtn = document.querySelector('.size-name');
+const sizeNameIcon = document.querySelector('.size-name img');
+const sizesListEl = document.querySelector('.sizes-list');
+
+let sizeName = false;
+sizeNameBtn.addEventListener('click', () => {
+    if (sizeName) {
+        sizeNameBtn.style.backgroundColor = 'inherit'
+        sizesListEl.style.display = 'none'
+        sizeFilter.style.borderRadius = "1.75rem"
+        sizeNameIcon.src = "../assets/icons/plus.svg"
+        sizeFilter.style.backgroundColor = "#f5f5f5"
+        sizeName = false;
+    } else {
+        sizeNameBtn.style.backgroundColor = 'rgb(255, 220, 220)'
+        sizesListEl.style.display = 'block'
+        sizeFilter.style.borderRadius = "0.75rem"
+        sizeNameIcon.src = "../assets/icons/minus.svg"
+        sizeFilter.style.backgroundColor = "white"
+        sizeName = true;
+    }
+});
+
+
+const sizesLiElement = document.querySelectorAll('.sizes-list li')
+const sizesListIcon = document.querySelectorAll('.sizes-list li img');
+
+
+const sizesLiDisplay = () => {
+    sizesLiElement.forEach((list, index) => {
+        let clicked = false
+        list.addEventListener('click', () => {
+            if (clicked) {
+                sizesListIcon[index].src = ""
+                list.style.backgroundColor = "inherit"
+                clicked = false
+            } else {
+                sizesListIcon[index].src = "../assets/icons/ok.svg"
+                list.style.backgroundColor = "#f5f5f5"
+                clicked = true
+            }
+        })
+    })
+}
+sizesLiDisplay()
+
+
+
+
+
+
+// ****************************************** C O L O R S
+
+const colorFilter = document.querySelector('.color-filter')
+const colorNameBtn = document.querySelector('.color-name');
+const colorNameIcon = document.querySelector('.color-name img');
+const colorsListEl = document.querySelector('.colors-list');
+
+let colorName = false;
+colorNameBtn.addEventListener('click', () => {
+    if (colorName) {
+        colorNameBtn.style.backgroundColor = 'inherit'
+        colorsListEl.style.display = 'none'
+        colorFilter.style.backgroundColor = "#f5f5f5"
+        colorFilter.style.borderRadius = "1.75rem"
+        colorNameIcon.src = "../assets/icons/plus.svg"
+        colorName = false;
+    } else {
+        colorNameBtn.style.backgroundColor = 'rgb(255, 220, 220)'
+        colorsListEl.style.display = 'block'
+        colorFilter.style.backgroundColor = "white"
+        colorFilter.style.borderRadius = "0.75rem"
+        colorNameIcon.src = "../assets/icons/minus.svg"
+        colorName = true;
+    }
+});
+
+
+const colorsLiElement = document.querySelectorAll('.colors-list li')
+const colorsListIcon = document.querySelectorAll('.colors-list li img');
+
+const colorsLiDisplay = () => {
+    colorsLiElement.forEach((list, index) => {
+        let clicked = false
+        list.addEventListener('click', () => {
+            if (clicked) {
+                colorsListIcon[index].src = ""
+                list.style.backgroundColor = "inherit"
+                clicked = false
+            } else {
+                colorsListIcon[index].src = "../assets/icons/ok.svg"
+                list.style.backgroundColor = "#f5f5f5"
+                clicked = true
+            }
+        })
+    })
+}
+
+colorsLiDisplay()
+
+
+
+
+
+
+
+
+
+
+
+// ************************************ S E A R C H
+const searchFilter = document.querySelector(".search-filter")
+const searchNameBtn = document.querySelector('.search-name');
+const searchsListEl = document.querySelector('.searchs-list');
+
+let searchName = false;
+searchNameBtn.addEventListener('click', () => {
+    if (searchName) {
+        searchNameBtn.style.backgroundColor = 'inherit'
+        searchsListEl.style.display = 'none'
+        searchFilter.style.borderRadius = "1.75rem"
+        searchFilter.style.backgroundColor = "#f5f5f5"
+        searchName = false;
+    } else {
+        searchNameBtn.style.backgroundColor = 'rgb(255, 220, 220)'
+        searchsListEl.style.display = 'block'
+        searchFilter.style.borderRadius = "0.75rem"
+        searchFilter.style.backgroundColor = "white"
+        searchName = true;
+    }
+});
+
+
+const searchLiElement = document.querySelectorAll('.search-list li')
+
+searchLiElement.forEach((list, index) => {
+    let clicked = false
+    list.addEventListener('click', () => {
+        if (clicked) {
+            list.style.backgroundColor = "inherit"
+            clicked = false
+        } else {
+            list.style.backgroundColor = "#f5f5f5"
+            clicked = true
+        }
+    })
+})
+
+
+
+
+
+
+
+
+// product
+
+const productBox = document.querySelectorAll('.product-box');
+
+productBox.forEach((box) => {
+    box.addEventListener('click', () => {
+        window.location.href = "../product/product.html"
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// **********************************************************************************************************
+
+
+
+// C A T E G O R Y
+let categoryList = document.querySelectorAll('.category-list .sub-list li');
+let categoryArray = [];
+
+categoryList.forEach((category, index) => {
+    category.addEventListener('click', () => {
+        const dataset = Object.values(category.dataset);
+
+        const existingIndex = categoryArray.findIndex(item => JSON.stringify(item) === JSON.stringify(dataset));
+        if (existingIndex !== -1) {
+            categoryArray.splice(existingIndex, 1);
+        } else {
+            categoryArray.push(dataset);
+        }
+
+        catalogLists = [];
+        localStorage.setItem('catalogLists', JSON.stringify(catalogLists));
+
+        filterAndDisplayProducts();
+    });
+});
+
+// B R A N D S
+let brandList = document.querySelectorAll('.brand-filter li');
+let brandArray = [];
+
+brandList.forEach((brand, index) => {
+    brand.addEventListener('click', () => {
+        const dataset = Object.values(brand.dataset);
+
+        const existingIndex = brandArray.findIndex(item => JSON.stringify(item) === JSON.stringify(dataset));
+        if (existingIndex !== -1) {
+            brandArray.splice(existingIndex, 1);
+        } else {
+            brandArray.push(dataset);
+        }
+
+
+
+        filterAndDisplayProducts();
+    });
+});
+
+// S I Z E
+let sizesList = document.querySelectorAll('.size-filter li');
+let sizeArray = [];
+
+sizesList.forEach((size, index) => {
+    size.addEventListener('click', () => {
+        const dataset = Object.values(size.dataset);
+
+        const existingIndex = sizeArray.findIndex(item => JSON.stringify(item) === JSON.stringify(dataset));
+        if (existingIndex !== -1) {
+            sizeArray.splice(existingIndex, 1);
+        } else {
+            sizeArray.push(dataset);
+        }
+
+        filterAndDisplayProducts();
+    });
+});
+
+// C O L O R
+let colorList = document.querySelectorAll('.color-filter li');
+let colorArray = [];
+
+colorList.forEach((color, index) => {
+    color.addEventListener('click', () => {
+        const dataset = Object.values(color.dataset);
+
+        const existingIndex = colorArray.findIndex(item => JSON.stringify(item) === JSON.stringify(dataset));
+        if (existingIndex !== -1) {
+            colorArray.splice(existingIndex, 1);
+        } else {
+            colorArray.push(dataset);
+        }
+
+        filterAndDisplayProducts();
+    });
+});
+
+
+// *************************************************************
+
+// C A T A L O G
+let catalogLists = JSON.parse(localStorage.getItem('catalogLists'))
+console.log(catalogLists);
+
+const subLategoriesLiEl = document.querySelectorAll('.sub-categories li')
+subLategoriesLiEl.forEach((category, index) => {
+    category.addEventListener('click', () => {
+        catalogLists = [];
+        catalogLists = Object.values(category.dataset);
+        console.log(catalogLists);
+        localStorage.setItem('catalogLists', JSON.stringify(catalogLists));
+        getProduct();
+    });
+});
+
+
+
+
+const clearFilters = document.querySelector('.clear-filters');
+
+clearFilters.addEventListener('click', () => {
+    let status = false;
+    categoryArray = [];
+    brandArray = [];
+    sizeArray = [];
+    colorArray = [];
+    catalogLists = [];
+    localStorage.setItem('catalogLists', JSON.stringify(catalogLists));
+
+    subListLiElment.forEach((list, index) => {
+        subListIcon[index].src = ""
+        list.style.backgroundColor = "inherit"
+    })
+
+    brandsLiElement.forEach((list, index) => {
+        brandsListIcon[index].src = ""
+        list.style.backgroundColor = "inherit"
+    })
+
+    sizesLiElement.forEach((list, index) => {
+        sizesListIcon[index].src = ""
+        list.style.backgroundColor = "inherit"
+    })
+
+    colorsLiElement.forEach((list, index) => {
+        colorsListIcon[index].src = ""
+        list.style.backgroundColor = "inherit"
+    });
+
+    sizesLiDisplay();
+    subLiDisplay();
+    brandsLiDisplay();
+    colorsLiDisplay();
+    getProduct();
+
+});
+
+
+
+let products;
+
+const getProduct = async () => {
+    try {
+        const response = await fetch("http://localhost:3000/products");
+        const data = await response.json();
+
+        // Filtreleme işlemini gerçekleştir
+        const filteredProducts = filterProducts(data);
+
+        // Filtrelenmiş ürünleri kullanarak displayProduct fonksiyonunu çağır
+        displayProduct(filteredProducts);
+
+        // Filtrelenmiş ürünleri geri döndür
+        return filteredProducts;
+    } catch (error) {
+        console.error("Error fetching products:", error);
+    }
+}
+
+const filterProducts = (data) => {
+    return data.filter((product) => {
+        const categoryCondition =
+            categoryArray.length === 0 ||
+            categoryArray.some(category => product.productName.includes(category));
+
+        const brandCondition =
+            brandArray.length === 0 ||
+            brandArray.some(category => product.brandTitle.includes(category));
+
+        const colorCondition =
+            colorArray.length === 0 ||
+            colorArray.some(category => product.color.includes(category));
+
+        console.log(colorArray.some(category => product.color.includes(category)));
+
+        const catalogCondition =
+            catalogLists.length === 0 ||
+            catalogLists.some(category => product.productName.includes(category));
+
+        const flattenedSizeArray = sizeArray.flat();
+
+        // console.log("flattenedSizeArray:", flattenedSizeArray);
+        const sizeCondition =
+            flattenedSizeArray.length === 0 ||
+            (product.size && Object.keys(product.size).some((sizeFilter) => flattenedSizeArray.includes(sizeFilter) && product.size[sizeFilter] > 0));
+
+        // console.log("sizeCondition:", sizeCondition);
+
+
+        return categoryCondition && colorCondition && sizeCondition && brandCondition && catalogCondition;
+
+    });
+}
+
+
+
+// displayProduct fonksiyonunu tanımla
+const displayProduct = (products) => {
+    const productContainer = document.querySelector('.product-container');
+    productContainer.innerHTML = "";
+
+    if (!products) {
+        console.error("Products array is undefined.");
+        return;
+    }
+    products.forEach((product) => {
+        const { id, title, price, image, discountOffer, discount } = product;
+        let currentprice = discountOffer ? price - discount : price;
+
+        // Build the HTML content based on discountOffer
+        const discountHtml = discountOffer ? `<p class="dis-price"> ₼ ${price.toFixed(2)}</p>` : '';
+
+        // Create a div element for the current product
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product-box');
+        productDiv.setAttribute('data-id', id);
+
+        productDiv.innerHTML += `
+            <div class="box-img">
+                <img src="../${image[0]}" alt="">
+            </div>
+            <div class="box-info">
+                <a href="./store.html" class="product-name">${title}</a>
+                <div class="product-price">${discountHtml} ₼ ${currentprice.toFixed(2)}</div>
+            </div>
+        `;
+
+        // Append the current product to the container
+        productContainer.appendChild(productDiv);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function initPagination() {
+            const products = document.querySelectorAll(".product-box");
+            const itemsPerPage = 12;
+            let currentPage = 1;
+
+            function displayProducts(page) {
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                products.forEach((product, index) => {
+                    if (index >= startIndex && index < endIndex) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            }
+
+            function setupPagination() {
+                const pageCount = Math.ceil(products.length / itemsPerPage);
+                const paginationContainer = document.getElementById("pagination");
+
+                paginationContainer.innerHTML = "";
+
+                const pagPrevious = document.createElement("div");
+                pagPrevious.classList.add("pag-previous");
+                pagPrevious.textContent = "Əvvəlki";
+                pagPrevious.addEventListener("click", function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        displayProducts(currentPage);
+                        updateActiveButton();
+                    }
+                });
+                paginationContainer.appendChild(pagPrevious);
+
+                const pagNumContainer = document.createElement("div");
+                pagNumContainer.classList.add("pag-num");
+
+                for (let i = 1; i <= pageCount; i++) {
+                    const pageButton = document.createElement("div");
+                    pageButton.classList.add("num");
+                    pageButton.textContent = i;
+
+                    if (i === currentPage) {
+                        pageButton.classList.add("active");
+                    }
+
+                    pageButton.addEventListener("click", function () {
+                        currentPage = i;
+                        displayProducts(currentPage);
+                        updateActiveButton();
+                    });
+                    pagNumContainer.appendChild(pageButton);
+                }
+
+                paginationContainer.appendChild(pagNumContainer);
+
+                const pagNext = document.createElement("div");
+                pagNext.classList.add("pag-next");
+                pagNext.textContent = "Növbəti";
+                pagNext.addEventListener("click", function () {
+                    if (currentPage < pageCount) {
+                        currentPage++;
+                        displayProducts(currentPage);
+                        updateActiveButton();
+                    }
+                });
+                paginationContainer.appendChild(pagNext);
+
+                updateActiveButton();
+            }
+
+            function updateActiveButton() {
+                const buttons = document.querySelectorAll("#pagination .pag-num .num");
+                buttons.forEach((button, index) => {
+                    if (index + 1 === currentPage) {
+                        button.classList.add("active");
+                    } else {
+                        button.classList.remove("active");
+                    }
+                });
+            }
+
+            displayProducts(currentPage);
+            setupPagination();
+        }
+
+
+        initPagination();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Select elements within the current product
+        const currentProductPrice = productDiv.querySelector('.product-price');
+        const currentDisPrice = productDiv.querySelector('.dis-price');
+
+        // Apply styles based on discountOffer
+        if (discountOffer) {
+            currentProductPrice.style.color = 'black';
+            currentDisPrice.style.color = 'red';
+            currentDisPrice.style.fontSize = '14px';
+            currentDisPrice.style.textDecoration = 'line-through';
+        }
+
+        // Add click event listener to the current product box
+        productDiv.addEventListener('click', () => {
+            const clickedProductId = productDiv.getAttribute('data-id');
+            const clickedProduct = products.find((product) => product.id == parseInt(clickedProductId));
+
+            console.log(clickedProduct);
+            localStorage.setItem('clickedProduct', JSON.stringify(clickedProduct));
+            console.log(` ID ${clickedProductId} clicked!`);
+            window.location.href = "../product/product.html";
+        });
+    });
+}
+
+
+// filterAndDisplayProducts fonksiyonunu tanımla
+const filterAndDisplayProducts = async () => {
+    const filteredProducts = await getProduct();
+    displayProduct(filteredProducts);
+}
+
+// İlk yüklemede tüm ürünleri getir
+getProduct();
+
+
+
+
+
+
+const liElements = document.querySelectorAll('.colors-list li');
+const bgColorElements = document.querySelectorAll('.colors-list .bg-color');
+
+liElements.forEach((liElement, index) => {
+    const colorValue = liElement.dataset.color;
+    bgColorElements[index].style.backgroundColor = colorValue;
+    console.log(colorValue);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

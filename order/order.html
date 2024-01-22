@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/icons/Logo-pink.svg" sizes="192x192" />
+    <link rel="stylesheet" href="./order.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <div class="header-info">
+
+
+                <div class="logo">
+                    <a href="../index.html">BrandHunter</a>
+                    <img src="../assets/images/logo.svg" alt="">
+                </div>
+
+                <div class="header-list">
+                    <ul class="list-info">
+                        <li><a href="">Yeni gələnlər</a></li>
+                        <li><a href="../store/store.html">Mağaza</a></li>
+                        <li><a href="">Endirimlər</a></li>
+                        <li><a href="./brands.html">Brendlər</a></li>
+
+                        <ul class="list-contact">
+                            <li><a href="https://www.instagram.com/brandhunter.az/?hl=en">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/">Facebook</a></li>
+                            <li><a href="https://www.tiktok.com/">Tiktok</a></li>
+                        </ul>
+                    </ul>
+
+
+                </div>
+
+                <div class="language">
+                    <button class="language-btn">
+                        AZ
+                    </button>
+                    <button class="burger-menu">
+                        <img src="../assets/icons/burger-menu.svg" alt="">
+                    </button>
+                </div>
+
+
+            </div>
+
+
+            <div class="header-search">
+
+                <div class="catalog">
+                    <img src="../assets/icons/catalog.svg" alt="">
+                    <h4>Kataloq</h4>
+
+
+                    <div class="catalog-list">
+                        <ul>
+
+                            <li>
+
+                                <div class="list-name">
+                                    <img src="../assets/images/shoe.png" alt=""><a href="">ayaqqabi</a>
+                                </div>
+
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-shoe="sport-shoes" ><a href="#">Idman ayaqqabısı</a></li>
+                                    </ul>
+                                </div>
+
+
+
+
+
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/bag.png" alt=""><a href="">çanta</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-bag="wallet" ><a href="#">Cüzdan</a></li>
+                                        <li data-bag="crossbody-bag" ><a href="#">Crossbody çanta</a></li>
+                                        <li class="list-name" ><a href="#">Əl çantası</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/clothing.png" alt=""><a href="">Geyim</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-clothing="t-shirt" ><a href="#">T-shirt</a></li>
+                                        <li data-clothing="jacket" ><a href="#">Gödəkcə</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/accessory.png" alt=""><a href="">Aksesuar</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-accessory="watch" ><a href="#">Saat</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/parfum.png" alt=""><a href="">Parfümeriya</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-perfumery="perfume-set" ><a href="#">Ətir seti</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+
+                <div class="search-input">
+                    <input type="text" placeholder="Axtarış">
+                </div>
+
+                <div class="basket">
+                    <img src="../assets/icons/basket-svgrepo-com.svg" alt="">
+                    <sup>0</sup>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <div class="order-customer">
+
+                <div class="customer-data">
+
+                    <h3>Müştəri məlumatları</h3>
+
+                    <div class="customer-info">
+
+
+                        <div class="box-1">
+
+
+
+                            <div class="input-box">
+                                <div class="nam">
+                                    <p>Ad<span>*</span></p>
+                                </div>
+                                <input class="name-value" type="text">
+                            </div>
+
+
+                            <div class="input-box">
+                                <div class="nam">
+                                    <p>Soyad<span>*</span></p>
+                                </div>
+                                <input class="subname-value" type="text">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="box-2">
+                            <div class="input-box">
+                                <div class="nam">
+                                    <p>Email<span>*</span></p>
+                                </div>
+                                <input class="email-value" type="email">
+                            </div>
+
+                            <div class="input-box">
+                                <div class="nam">
+                                    <p>Əlaqə nömrəsi<span>*</span></p>
+                                </div>
+                                <input class="number-value" type="number">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="adress-info">
+                        <div class="nam">
+                            <p>Ünvan<span class="optionality">* <!-- (Seçimlik) --></span></p>
+                        </div>
+                        <input class="adress-value" type="text">
+                    </div>
+
+                    <div class="adress-check">
+                        <input type="checkbox" id="myCheckbox">
+                        <label for="myCheckbox">Bu ünvana çatdırılacaq (₼ 5.00)</label>
+                    </div>
+
+                    <div class="confirm-order">
+                        Sifarişi təsdiqlə
+                    </div>
+                </div>
+
+                
+                <div class="arrowY"></div>
+
+
+                <div class="order-details">
+
+                    <h3>Sifariş detalları</h3>
+
+
+
+                    <div class="product-list">
+
+<!-- 
+                        <div class="product-box">
+
+                            <div class="product-display">
+                                <img src="../assets/images/ea-bag.png" alt="">
+                                <div class="product-name">Emporio Armani çanta</div>
+                            </div>
+
+                            <div class="product-price">₼ 300.00 x 1</div>
+                            <div class="product-size"></div>
+
+                        </div> -->
+
+
+                    </div>
+
+
+
+                    <div class="coupon-container">
+                        <p class="reveal-button">Kuponu gizlət</p>
+                        <div class="input-code">
+                            <input type="text" class="coupon-code">
+                            <p class="apply" id="applyButton">Tətbiq et</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="calculation">
+
+                        <div class="calc">
+
+                            <div class="total-price">
+                                <div class="tot-name"> Cəm </div>
+                                <div class="tot-value">₼ 545.00</div>
+                            </div>
+
+                            <div class="delivery">
+                                <div class="del-nam">Çatdırılma</div>
+                                <div class="del-value">₼ 0.00</div>
+                            </div>
+
+                        </div>
+
+                        <div class="general">
+                            <div class="del-nam">Ümumi</div>
+                            <div class="del-value">₼ 550.00</div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Sosial</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/brandhunter.az/?hl=en" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.tiktok.com/" target="_blank">Tiktok</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Əlaqə</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/brandhunter.az/?hl=en" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">contact@brandhunter.az</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasiya</h4>
+                    <ul>
+                        <li><a href="#">Yeni gələnlər</a></li>
+                        <li><a href="../store/store.html">Mağaza</a></li>
+                        <li><a href="#">Endirimlər</a></li>
+                        <li><a href="./brands.html">Brendlər</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kömək</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Gizlilik siyasəti</a></li>
+                        <li><a href="#">Çatdırılma və Qaytarma</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rights">
+                <div class="rights-info">
+                    <p>© 2023 Brand Hunter. Bütün hüquqlar qorunur</p>
+                </div>
+
+                <div class="powered">
+                    <p>Powered by </p>
+                    <a class="by" href="https://github.com/TamerlanAlliyev" target="_blank">Tamerlan Aliyev</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="./order.js"></script>
+</body>
+
+</html>

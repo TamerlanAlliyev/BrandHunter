@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/icons/Logo-pink.svg" sizes="192x192" />
+    <link rel="stylesheet" href="./basket.css">
+    <title>Document</title>
+</head>
+
+<style>
+.empty-basket {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 1px solid #eae9e9;
+    font-size: 18px;
+}
+
+.empty-basket img {
+    width: 80px;
+    height: 80px;
+}
+
+.empty-basket .go-store {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    background: #000;
+    max-width: 250px;
+    width: 100%;
+    padding: 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    position: relative;
+}
+
+.empty-basket .go-store::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    margin-right: 14px;
+    right: 15px;
+    position: absolute; /* relative değil absolute olmalı */
+    background-image: url('../assets/icons/arrow-right-svgrepo-com (2).svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    display: inline-block;
+    align-items: center;
+}
+
+.empty-basket .go-store:hover .go-store::after {
+    background-image: url('../assets/icons/arrow-right-svgrepo-com.svg');
+}
+
+.empty-basket .go-store:hover {
+    background: #ffdcdc;
+    color: #000;
+}
+
+.empty-basket .go-store img {
+    width: 14px;
+    height: 14px;
+}
+
+/* .empty{
+    display: none;
+} */
+
+
+
+
+</style>
+
+<body>
+    <header>
+
+        <div class="container">
+
+            <div class="header-info">
+
+
+                <div class="logo">
+                    <a href="../index.html">BrandHunter</a>
+                    <img src="../assets/images/logo.svg" alt="">
+                </div>
+
+                <div class="header-list">
+                    <ul class="list-info">
+                        <li><a href="">Yeni gələnlər</a></li>
+                        <li><a href="../store/store.html">Mağaza</a></li>
+                        <li><a href="">Endirimlər</a></li>
+                        <li><a href="../brands/brands.html">Brendlər</a></li>
+
+                        <ul class="list-contact">
+                            <li><a href="https://www.instagram.com/brandhunter.az/?hl=en">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/">Facebook</a></li>
+                            <li><a href="https://www.tiktok.com/">Tiktok</a></li>
+                        </ul>
+                    </ul>
+
+
+                </div>
+
+                <div class="language">
+                    <button class="language-btn">
+                        AZ
+                    </button>
+                    <button class="burger-menu">
+                        <img src="../assets/icons/burger-menu.svg" alt="">
+                    </button>
+                </div>
+
+
+            </div>
+
+
+            <div class="header-search">
+
+                <div class="catalog">
+                    <img src="../assets/icons/catalog.svg" alt="">
+                    <h4>Kataloq</h4>
+
+
+                    <div class="catalog-list">
+                        <ul>
+
+                            <li>
+
+                                <div class="list-name">
+                                    <img src="../assets/images/shoe.png" alt=""><a href="">ayaqqabi</a>
+                                </div>
+
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-shoe="sport-shoes" ><a href="#">Idman ayaqqabısı</a></li>
+                                    </ul>
+                                </div>
+
+
+
+
+
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/bag.png" alt=""><a href="">çanta</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-bag="wallet" ><a href="#">Cüzdan</a></li>
+                                        <li data-bag="crossbody-bag" ><a href="#">Crossbody çanta</a></li>
+                                        <li data-bag="handbag" ><a href="#">Əl çantası</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/clothing.png" alt=""><a href="">Geyim</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-clothing="t-shirt" ><a href="#">T-shirt</a></li>
+                                        <li data-clothing="jacket" ><a href="#">Gödəkcə</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/accessory.png" alt=""><a href="">Aksesuar</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-accessory="watch" ><a href="#">Saat</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-name">
+                                    <img src="../assets/images/parfum.png" alt=""><a href="">Parfümeriya</a>
+                                </div>
+                                <div class="sub-categories">
+                                    <ul>
+                                        <li data-perfumery="perfume-set" ><a href="#">Ətir seti</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+
+                <div class="search-input">
+                    <input type="text" placeholder="Axtarış">
+                </div>
+
+                <div class="basket">
+                    <img src="../assets/icons/basket-svgrepo-com.svg" alt="">
+                    <sup>1</sup>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <div class="container">
+
+
+            <div class="empty-basket empty">
+                <img src="../assets/icons/soul.svg" alt="">
+                <h4>Səbətdə məhsul yoxdur</h4>
+
+                <a href="../store/store.html" class="go-store">
+                    Mağazaya keç </a>
+            </div>
+
+            <!-- <div class="product-display"> -->
+
+            <div class="product-container" id="product-container">
+
+
+
+
+            </div>
+            <!-- 
+                <div class="product-box">
+
+
+                    <div class="box-img">
+                        <img src="../assets/images/ea-bag.png" alt="">
+                    </div>
+
+
+                    <div class="box-info">
+                        <p class="brand-name">Emporio Armani</p>
+                        <p class="product-name">Emporio Armani çanta</p>
+                        <p class="product-size">M</p>
+                    </div>
+
+
+                    <div class="product-count">
+
+                        <div class="count">
+
+                            <div class="increasing-btn">
+                                <img src="../assets/icons/minus.svg" alt="">
+                            </div>
+
+                            <input class="count-value" type="number" value="1">
+
+                            <div class="decreasing-btn">
+                                <img src="../assets/icons/plus.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="trash-box">
+                            <img src="../assets/icons/trash-box-white.svg" alt="">
+                        </div>
+                    </div>
+
+                </div> -->
+
+
+
+
+        </div>
+
+        <!-- </div> -->
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <!-- hidden -->
+            <div class="orders ">
+                <div class="order-btn">Sifariş et <img src="../assets/icons/order-white.svg" alt=""></div>
+                <div class="clear-basket">Səbəti təmizlə</div>
+            </div>
+
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Sosial</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/brandhunter.az/?hl=en" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.tiktok.com/" target="_blank">Tiktok</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Əlaqə</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/brandhunter.az/?hl=en" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">contact@brandhunter.az</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasiya</h4>
+                    <ul>
+                        <li><a href="#">Yeni gələnlər</a></li>
+                        <li><a href="../store/store.html">Mağaza</a></li>
+                        <li><a href="#">Endirimlər</a></li>
+                        <li><a href="../brands/brands.html">Brendlər</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kömək</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Gizlilik siyasəti</a></li>
+                        <li><a href="#">Çatdırılma və Qaytarma</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rights">
+                <div class="rights-info">
+                    <p>© 2023 Brand Hunter. Bütün hüquqlar qorunur</p>
+                </div>
+
+                <div class="powered">
+                    <p>Powered by </p>
+                    <a class="by" href="https://github.com/TamerlanAlliyev" target="_blank">Tamerlan Aliyev</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="./basket.js"></script>
+</body>
+
+</html>
